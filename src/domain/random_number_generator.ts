@@ -11,6 +11,10 @@ export class RandomNumberGenerator {
         this.internal_seed = seed;
     }
 
+    public get_seed(): number {
+        return this.internal_seed;
+    }
+
     // Reference: https://en.wikipedia.org/wiki/Jenkins_hash_function
     public random(): number {
         let seed = this.internal_seed;

@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+export NODE_ENV=production
+export SEED=$(grep '"SEED"' cypress.json | sed -e 's/"SEED": "//' -e 's/"//' | awk '{$1=$1};1')
+export PORT=3000
+
+node dist/main.js &
+PID=$!
+yarn cypress run
+kill "$PID"
