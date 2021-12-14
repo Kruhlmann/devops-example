@@ -18,5 +18,7 @@ jobs:
               run: yarn install
             - name: build
               run: yarn tsc
-            - name: test
-              run: yarn jest && yarn cypress run
+            - name: unit tests
+              run: yarn jest tests/unit
+            - name: integration tests
+              run: sh scripts/integration_tests
