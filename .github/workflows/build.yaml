@@ -1,0 +1,20 @@
+name: Build & test
+on:
+    push:
+        branches:
+            - "*"
+
+jobs:
+    ci:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout github repo
+              uses: actions/checkout@v2
+              with:
+                lfs: true
+            - name: Checkout LFS objects
+              run: git lfs checkout
+            - name: build
+              run: yarn tsc
+            - name: test
+              run: yarn jest && yarn cypress run
