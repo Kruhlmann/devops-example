@@ -1,6 +1,12 @@
 export class RandomNumberGenerator {
     protected internal_seed: number;
 
+    public constructor(seed?: number) {
+        if (seed) {
+            this.internal_seed = seed;
+        }
+    }
+
     public seed(seed: number): void {
         this.internal_seed = seed;
     }
