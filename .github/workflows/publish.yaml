@@ -22,5 +22,5 @@ jobs:
                   docker build --cache-from $ONBUILD -t $ONBUILD -f docker/Dockerfile .
                   docker push $IMAGE
               env:
-                  ONBUILD: kruhlmann/devops-example:onbuild
+                  ONBUILD: kruhlmann/devops-example
                   IMAGE: kruhlmann/devops-example
